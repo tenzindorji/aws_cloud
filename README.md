@@ -1,4 +1,5 @@
 # AWS Cloud Interview Questions:
+https://www.simplilearn.com/tutorials/aws-tutorial/aws-interview-questions
 
 # EC2
 ## EC2 options:
@@ -86,7 +87,7 @@
   - It can be configured to send notifications via AWS SNS when new logs are delivered.
 - There are many more logging and each services provides their own logging.
 ## What is DDoS attack and what services can minimize DDoS Attack?
-- Denial Of Service(DDoS)
+- Distributed Denial Of Service(DDoS)
   - Malicious users creating Multiple connections and keeps session open and actual users won't be able to connect to the service
 - We can minimize DDoS using below services
   - AWS CloudShield
@@ -112,12 +113,58 @@
   - Route53
   - WAF
   - CloudFront
-  
 
-  # S3
-# IAM
+## What are differences between NAT Gateways and NAT Instances?
+  - NAT Gateway is managed by AWS and whereas NAT instance is managed by user
+  - SG cannot be assigned to NAT G and but it can be assigned to NAT Instance
+  - NAT Gateway is high performance and NAT instance is average performance.
+## How to configure cloudWatch to recover EC2 instances
+  - In CloudWatch, go to Define Alarm --> Actions tab
+  - Select the `Recover this Instance` option
+
+## What are the common and different types for AMI designs?
+ - Fully Baked AMI
+ - JeOS AMI (Just Enough Operating System)
+ - Hybrid AMI
+## How can you recover/login to an EC2 instance to which you lost the key?
+- Once the key is lost, you can't recover it. Make another key and make use of that by follow below steps:
+ 1 Verify that the EC2config service is running \
+ 2 Detach the root Vol from the instance \
+ 3 Attach the vol to temporary instance \
+ 4 Login to temp instance and Modify the configuration file to take new key \
+ 5 Move root vol back to original instance and Restart it
+
+# S3
+## What are the key differences between AWS S3 and EBS?
+  |Feature|S3|EBS|
+  |---|---|---|
+  |Paradigm|Object Store|FileSystem|
+  |Performance|Fast|Super Fast|
+  |Redundancy|Accross Data Centers(AZ)|Within A Data Center|
+  |Security|Using Public Or Private key|Can be used only with EC2|
+## How to you allow access to a user to a certain bucket?
+  - Using IAM Policies which has allow and deny flags.
+## How can you monitor S3 cross region replication to ensure consistency without actually checking the bucket?
+  - CRR Monitor Cross Region Replication Monitor application is used to monitor replication status of S3 objects
+
 # VPC
+## VPC is not resolving the server through DNS . What might be the issue and how can you fix it?
+  - `Enable DNS hostnames` to enable a VPC to resolve  public DNS hostnames to private IPv4 addresses
+## How do you connect multiple sites to a VPC?
+  - If you have multiple VPN connections, you can provide secure communication between sites using the AWS VPN CloudHub.
+## Name and Explain some security products and features available at VPC?
+  - Security groups
+    - Act as firewall for associated EC2 instances, controlling both inbound and outbound traffic at the instance level
+  - Network access control list(NACL)
+    - Act as a firewall for associated subnets, controlling both inbound and outbound traffic at the subnet level
+  - VPC Flow logs
+    - Capture information about the IP traffic going to and from network interface in your VPC.
+## How do you monitory VPC?
+  - VPC Flow logs (gives information of who is allow and who is not allow)
+  - CloudWatch and CloudWatch logs (gives information above data transfer)
+
 # CF
+# IAM
 
   - You launch you media company and want your files to be viewable on a variety of devices. Which AWS service will you make use of?
     - Elastic Transcoder
