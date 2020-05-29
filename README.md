@@ -164,6 +164,25 @@ https://www.simplilearn.com/tutorials/aws-tutorial/aws-interview-questions
   - CloudWatch and CloudWatch logs (gives information above data transfer)
 
 # CF
+  1 Format Version
+  `AWSTemplateFormatVersion: '2010-09-09'`
+  - If it is not mention, cf will automatically assume latest template version
+  - value should be type `string`
+  2 Description
+  - value should be type `string`
+  3 Resources
+  4 Parameters
+    - allows us to Input custom values each time we create or update the stack
+  5 Mappings
+  6 Outputs
+  7 Metadata
+    - Provides more information about cf template
+  8 Conditions
+    - compare and conditionally create resouces
+  9 Transform
+
+
+
 # IAM
 
   - You launch you media company and want your files to be viewable on a variety of devices. Which AWS service will you make use of?
